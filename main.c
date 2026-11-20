@@ -113,7 +113,7 @@ int main(){
     int opcao;
 
     printf("=== MINI-GIT: staging (fila) ===\n");
-    while(1){
+    do {
         printf("\n1 - Adicionar arquivo ao staging (enqueue)\n");
         printf("2 - Fazer commit (dequeue ate esvaziar)\n");
         printf("3 - Ver o proximo arquivo (front)\n");
@@ -133,7 +133,7 @@ int main(){
         else if(opcao == 4) mostrar_status(&staging);
         else if(opcao == 0) break;
         else printf("Erro: opcao %d nao existe.\n", opcao);
-    }
+    } while(opcao != 0);
 
     printf("Saindo do mini-git.\n");
     return 0;

@@ -1,8 +1,24 @@
-CC = gcc
-CFLAGS = -Wall -Wextra
+CC      = gcc
+CFLAGS  = -Wall -Wextra -std=c99 -Iinclude
+SRC     = $(wildcard src/*.c)
+OBJ     = $(SRC:src/%.c=build/%.o)
+BIN     = minigit
 
-minigit: main.c fila.c fila.h
-	$(CC) $(CFLAGS) -o minigit main.c fila.c
+$(BIN): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
+
+build/%.o: src/%.c | build
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+build:
+	mkdir -p build
+
+run: $(BIN)
+	./$(BIN)
 
 clean:
-	rm -f minigit minigit.exe
+	rm -rf build $(BIN) $(BIN).exe
+
+-include $(OBJ:.o=.d)
+
+.PHONY: run clean

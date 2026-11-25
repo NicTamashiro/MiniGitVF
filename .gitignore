@@ -1,4 +1,5 @@
 build/
 minigit
-minigit.exe
+minigit-tui
+*.exe
 .idea/

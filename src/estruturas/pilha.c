@@ -19,26 +19,26 @@ bool pop(pilha *p, stack_info *ret){
     return true;
 }
 
-bool top(pilha *p, stack_info *ret){
+bool top(const pilha *p, stack_info *ret){
     if(p->topo == 0 || ret == NULL)
         return false;
     *ret = p->itens[p->topo - 1];
     return true;
 }
 
-bool stack_isempty(pilha *p){
+bool stack_isempty(const pilha *p){
     return p->topo == 0;
 }
 
-bool stack_isfull(pilha *p){
+bool stack_isfull(const pilha *p){
     return p->topo == STACK_MAX;
 }
 
-int stack_len(pilha *p){
+int stack_len(const pilha *p){
     return p->topo;
 }
 
-bool stack_get(pilha *p, int i, stack_info *ret){
+bool stack_get(const pilha *p, int i, stack_info *ret){
     if(i < 0 || i >= p->topo || ret == NULL)
         return false;
     *ret = p->itens[p->topo - 1 - i];

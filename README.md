@@ -15,14 +15,7 @@ Git de verdade: o arquivo entra no **staging** (fila), o **commit** esvazia o st
 grava no **histórico** (lista), e o **stash** guarda o staging pela metade numa **pilha**
 para recuperar depois.
 
-```
-            add                     commit
-  arquivo ───────▶ [ staging: FILA ] ───────▶ [ histórico: LISTA ]
-                     ▲          │
-          stash pop  │          │ stash
-                     │          ▼
-                   [ stash: PILHA ]
-```
+![Fluxo do mini-git: add coloca o arquivo no staging (fila); commit move o staging para o histórico (lista); stash move o staging para a pilha; stash pop devolve ao staging](docs/fluxo.svg)
 
 ## Como compilar e rodar
 
